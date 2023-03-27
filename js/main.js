@@ -136,3 +136,83 @@ console.log(person.languages.length);
 
 // Clear the console
 console.clear();
+
+
+
+// Variable Declaration - var vs let vs const
+
+// var -> Variable Hoisting
+
+console.log(myNewVariable);
+
+var myNewVariable = 'New Variable';
+
+console.log(myNewVariable);
+
+
+// let
+// Declares a Block-Scoped local variable, optional value
+// console.log(myCountry); // Uncaught ReferenceError: Cannot access 'myCountry' before initialization
+
+let aCountry = "United States";
+
+console.log(aCountry);
+
+if (true){
+    var aState = 'Illinois'; // global-scoped
+    let aCity = 'Chicago'; // block-scoped
+    console.log(aCity, aState, aCountry);
+}
+
+// console.log(aCity); // Uncaught ReferenceError: aCity is not defined
+console.log(aState);
+console.log(aCountry);
+
+// const - similar to let (block-scoped)
+// 2 differences: 1. Needs a value when declared. 2. Cannot be reassigned
+
+const someConstVal = 'abc';
+console.log(someConstVal);
+
+if (true){
+    let myFavColor = 'blue';
+    console.log(myFavColor);
+    myFavColor = 'red';
+    console.log(myFavColor);
+
+    const myLastName = 'Stanton';
+    console.log(myLastName);
+    // myLastName = 'Lincoln'; // Uncaught TypeError: Assignment to constant variable.
+    // console.log(myLastName);
+}
+// console.log(myLastName); // Uncaught ReferenceError: myLastName is not defined
+
+// Be careful when using const with an object!
+const cities = ['Chicago', 'New York', 'Los Angeles', 'Portland', 'Miami'];
+
+console.log(cities);
+
+cities[1] = 'Philadelphia';
+
+console.log(cities);
+
+// cities = ['Kansas City', 'Jacksonville', 'Houston']; // Uncaught TypeError: Assignment to constant variable.
+// console.log(cities);
+
+const president = {
+    first: 'Abe',
+    last: 'Lincoln'
+};
+
+console.log(president);
+
+president.first = 'Abraham';
+
+console.log(president);
+
+// president = { // Uncaught TypeError: Assignment to constant variable.
+//     first: 'George',
+//     last: 'Washinton'
+// };
+
+// console.log(president);
